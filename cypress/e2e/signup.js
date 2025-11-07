@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 describe('Create Account Flow', () => {
   before(() => {
     // If the page might throw JS exceptions, ignore them
-    Cypress.on('uncaught:exception', (err, runnable) => {
+    Cypress.on('uncaught:exception', (_err, _runnable) => {
       // returning false prevents Cypress from failing the test
       return false;
     });
@@ -33,7 +33,7 @@ describe('Create Account Flow', () => {
     const day = Math.floor(Math.random() * 28) + 1;     // 1-28
 
     // Fill out the form fields
-    //cy.get('#form-input-firstName').should('be.visible').type(firstName);
+    cy.get('#form-input-firstName').should('be.visible').type(firstName);
     cy.get('#form-input-lastName').should('be.visible').type(lastName);
     cy.get('#form-input-email').type(email);
     cy.get('#form-input-phoneMain').type(phone);

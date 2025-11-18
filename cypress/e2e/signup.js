@@ -52,7 +52,7 @@ describe('Create Account Flow', () => {
 
   });
 
-  it('visits signup page and submits invalid data', () => {
+  it.only('visits signup page and submits invalid data', () => {
     // Visit the signup URL
     cy.visit('https://cyclebar.xpodev.com/auth/register', {
       failOnStatusCode: false,

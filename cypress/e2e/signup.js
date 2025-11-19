@@ -49,7 +49,6 @@ describe('Create Account Flow', () => {
     cy.get('.text-left.mb-3').eq(1).find('input').check();
     cy.get('.text-left.mb-3').eq(2).find('input').check();
     //cy.get('[name=prefMarketingSms]').check();
-
   });
 
   it.only('visits signup page and submits invalid data', () => {
@@ -93,7 +92,4 @@ describe('Create Account Flow', () => {
     cy.contains('Password must be at least 6 characters').should('be.visible');
     cy.contains('Please enter a valid date').should('be.visible');
   });
-
-
-
 });

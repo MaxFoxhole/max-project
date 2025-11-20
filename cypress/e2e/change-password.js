@@ -1,23 +1,17 @@
-// Import the Faker library to generate random test data
 import { faker } from '@faker-js/faker';
 
-// Describe block defines a test suite for "Create Account Flow"
 describe('Create Account Flow', () => {
 
-  // Runs once before all tests in the suite
   before(() => {
-    // Handle any uncaught JavaScript exceptions on the page
     Cypress.on('uncaught:exception', (_err, _runnable) => {
-      // Returning false prevents Cypress from failing the test due to JS errors
       return false;
     });
   });
 
   // Define a test case
-  it('visits sign in page and submits a valid data', () => {
+  it.only('visits sign in page and submits a valid data', () => {
 
     // Visit the login page URL
-    // auth: provides basic authentication credentials if required
     cy.visit('https://cyclebar.xpodev.com/auth/login', {
       auth: {
         username: 'admin',
@@ -26,7 +20,7 @@ describe('Create Account Flow', () => {
     });
 
     const email = 'kwachie+369@foxholeqa.com';
-    const password = 'Delmonte1';
+    const password = 'Delmonte2';
 
     cy.get('#form-input-email').type(email);
     cy.get('#form-input-password').type(password);
@@ -56,8 +50,9 @@ describe('Create Account Flow', () => {
     cy.wait(3000);
   });
 
+
   //input INVALID DATA
- it.only('visits signup page and submits no data', () => {
+ it('visits signup page and submits no data', () => {
     // Visit the sign in URL
     cy.visit('https://cyclebar.xpodev.com/auth/login', {
       auth: {

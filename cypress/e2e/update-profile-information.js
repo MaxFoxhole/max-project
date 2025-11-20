@@ -1,14 +1,9 @@
-// Import the Faker library to generate random test data
 import { faker } from '@faker-js/faker';
 
-// Describe block defines a test suite for "Create Account Flow"
 describe('Create Account Flow', () => {
 
-  // Runs once before all tests in the suite
   before(() => {
-    // Handle any uncaught JavaScript exceptions on the page
     Cypress.on('uncaught:exception', (_err, _runnable) => {
-      // Returning false prevents Cypress from failing the test due to JS errors
       return false;
     });
   });

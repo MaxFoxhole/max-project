@@ -12,7 +12,6 @@ describe('Create Account Flow', () => {
   it('visits signup page and submits a valid data', () => {
     // Visit the signup URL
     cy.visit('https://cyclebar.xpodev.com/auth/register', {
-      failOnStatusCode: false,
       auth: {
         username: 'admin',
         password: 'testify'
@@ -32,6 +31,8 @@ describe('Create Account Flow', () => {
     const month = Math.floor(Math.random() * 12) + 1;   // 1-12
     const day = Math.floor(Math.random() * 28) + 1;     // 1-28
 
+
+
     // Fill out the form fields
     cy.get('#form-input-firstName').should('be.visible').type(firstName);
     cy.get('#form-input-lastName').should('be.visible').type(lastName);
@@ -46,12 +47,12 @@ describe('Create Account Flow', () => {
 
 
     //checkbox
-    cy.get('.text-left.mb-3').eq(1).find('input').check();
-    cy.get('.text-left.mb-3').eq(2).find('input').check();
-    //cy.get('[name=prefMarketingSms]').check();
+    cy.get('input[type="checkbox"]').check();
   });
 
-  it.only('visits signup page and submits invalid data', () => {
+  
+
+  it('visits signup page and submits invalid data', () => {
     // Visit the signup URL
     cy.visit('https://cyclebar.xpodev.com/auth/register', {
       failOnStatusCode: false,
@@ -78,8 +79,7 @@ describe('Create Account Flow', () => {
 
 
     // Check checkboxes if required
-    cy.get('.text-left.mb-3').eq(1).find('input').check();
-    cy.get('.text-left.mb-3').eq(2).find('input').check();
+    cy.get('input[type="checkbox"]').check();
 
     // Click submit button
     cy.get('.btn-primary[type="submit"]').click();
